@@ -1,14 +1,23 @@
 {
-  "builds": {
-    "android": {
-      "release": {
-        "workflow": "managed"
-      },
-      "development": {
-        "workflow": "managed",
-        "buildType": "development-client",
-        "distribution": "internal"
-      }
-    }
-  }
+	"builds": {
+		"android": {
+			"qa": {
+				"workflow": "managed",
+				"env": {
+					"APP_ENV": "qa"
+				}
+			},
+			"production": {
+				"workflow": "managed",
+				"env": {
+					"APP_ENV": "production"
+				}
+			},
+			"development": {
+				"workflow": "managed",
+				"buildType": "development-client",
+				"distribution": "internal"
+			}
+		}
+	}
 }
