@@ -20,7 +20,7 @@ const baseConfig = {
 		supportsTablet: true
 	},
 	android: {
-		versionCode: "{CI SYSTEM UPDATE THIS}",
+		versionCode: '{CI SYSTEM UPDATE THIS}',
 		adaptiveIcon: {
 			foregroundImage: './assets/adaptive-icon.png',
 			backgroundColor: '#FFFFFF'
@@ -33,9 +33,6 @@ const baseConfig = {
 };
 
 module.exports = () => {
-  // Based on APP_ENV environment variable we are able to use different icons
-  // On the full blown app we are having two different app s. One for qa and production (e.g. different bundle identifiers for IOS).
-  // This gives our QA the possibility to easy detect what app is the qa version and what is production
 	switch (process.env.APP_ENV) {
 		case 'production': {
 			// Update android version code.
@@ -47,11 +44,11 @@ module.exports = () => {
 		}
 		case 'qa': {
 			const newConfig = { ...baseConfig, ...qa.expo };
-      // The qa version doesnt reach play store
-      newConfig.android.versionCode = 1
+			// The qa version doesnt reach play store
+			newConfig.android.versionCode = 1;
 			return newConfig;
 		}
-    // other configs...
+		// other configs...
 		default: {
 			throw new Error('Could not create a config file based on environment: APP_ENV=' + process.env.APP_ENV);
 		}
